@@ -1,18 +1,16 @@
 # pip install requests
-import requests
+from zenrows import ZenRowsClient
 import configparser
 
 config = configparser.ConfigParser()
 config.read('../config.ini')
 
 apikey = config['system']['key']
+client = ZenRowsClient(apikey)
 
 
 async def main():
-    url = 'https://cointelegraph.com/'
-    params = {
-        'url': url,
-        'apikey': apikey,
-    }
-    response = requests.get('https://api.zenrows.com/v1/', params=params)
+    url = "https://cointelegraph.com/"
+    response = client.get(url)
+
     print(response.text)
