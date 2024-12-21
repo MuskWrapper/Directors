@@ -1,13 +1,13 @@
-from fastapi import FastAPI
+import asyncio
+import json
 
-app = FastAPI()
+from crawl_coindesk.crawl.CoinnessUseCase import CrawlCoinnessUseCase
+
+async def main():
+    crawler = CrawlCoinnessUseCase()
+    result = await crawler.fetch_coinness_news()
+    print(json.dumps(result, ensure_ascii=False, indent=2))
 
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
-
-
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
+if __name__ == "__main__":
+    asyncio.run(main())
