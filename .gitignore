@@ -1,3 +1,5 @@
 .idea
 
 /crawl_coindesk/config.ini
+
+.envrc
