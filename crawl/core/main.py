@@ -3,12 +3,16 @@ import json
 import os
 from typing import Dict, Any
 
+from crawl.executor.usecase.BitcoinNewsUseCase import BitcoinNewsUseCase
 from crawl.executor.usecase.CoinnessUseCase import CrawlCoinnessUseCase
 from crawl.executor.usecase.CoinDeskLatestNewsUseCase import CoinDeskLatestNewsUseCase
 from crawl.executor.usecase.CoinDeskMainPageUseCase import CoinDeskMainPageUseCase
+from crawl.executor.usecase.CointelegraphUseCase import CointelegraphUseCase
 from crawl.executor.usecase.CryptoNewsUseCase import CryptoNewsUseCase
 from crawl.executor.usecase.CryptoslateInsightUseCase import CryptoSlateInsightsUseCase
 from crawl.executor.usecase.CryptoslateTopNewsUseCase import CryptoSlateUseCase
+from crawl.executor.usecase.DecryptUseCase import DecryptUseCase
+from crawl.executor.usecase.YahooFinanceUseCase import YahooFinanceUseCase
 from utils.ZenrowsUtil import ZenrowsUtil
 
 
@@ -60,6 +64,10 @@ async def main():
     cryptonews_usecase = CryptoNewsUseCase(zenrows_util)
     cryptoslate_insights_usecase = CryptoSlateInsightsUseCase(zenrows_util)
     cryptoslate_top_usecase = CryptoSlateUseCase(zenrows_util)
+    bitcoin_news_usecase = BitcoinNewsUseCase(zenrows_util)
+    cointelegrap_usecase = CointelegraphUseCase(zenrows_util)
+    decrypt_usecase = DecryptUseCase(zenrows_util)
+    yahoo_finance_usecase = YahooFinanceUseCase(zenrows_util)
 
     # Create tasks for all use cases
     tasks = [
@@ -69,7 +77,10 @@ async def main():
         execute_use_case("coindesk_most_read", coindesk_main_usecase.fetch_most_read()),
         execute_use_case("cryptonews", cryptonews_usecase.fetch_news()),
         execute_use_case("cryptoslate_insights", cryptoslate_insights_usecase.fetch_insights()),
-        execute_use_case("cryptoslate_top_news", cryptoslate_top_usecase.fetch_top_news())
+        execute_use_case("cryptoslate_top_news", cryptoslate_top_usecase.fetch_top_news()),
+        execute_use_case("cointelegrap", cointelegrap_usecase.fetch_news()),
+        execute_use_case("decrypt", decrypt_usecase.fetch_news()),
+        execute_use_case("yahoo_finance", yahoo_finance_usecase.fetch_news())
     ]
 
     print("Starting execution of all use cases...")
@@ -80,6 +91,7 @@ async def main():
     combined_results = {}
     for result in results:
         combined_results.update(result)
+
 
 if __name__ == "__main__":
     asyncio.run(main())
