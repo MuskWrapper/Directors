@@ -1,10 +1,10 @@
 # coinness_crawler.py
 from bs4 import BeautifulSoup
-from typing import Optional, Dict, List
+from typing import List
 from dataclasses import dataclass, asdict
 import re
 
-from crawl_coindesk.ZenrowsUtil import ZenrowsUtil
+from utils.ZenrowsUtil import ZenrowsUtil
 
 
 @dataclass

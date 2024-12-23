@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 from dataclasses import asdict, dataclass
 from typing import List, Optional
 
-from crawl_coindesk.ZenrowsUtil import ZenrowsUtil
+from utils.ZenrowsUtil import ZenrowsUtil
 
 
 @dataclass

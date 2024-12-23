@@ -1,9 +1,9 @@
 from bs4 import BeautifulSoup
-from typing import Optional, Dict, List
+from typing import Optional, List
 from dataclasses import dataclass, asdict
 from datetime import datetime
 
-from crawl_coindesk.ZenrowsUtil import ZenrowsUtil
+from utils.ZenrowsUtil import ZenrowsUtil
 
 
 @dataclass

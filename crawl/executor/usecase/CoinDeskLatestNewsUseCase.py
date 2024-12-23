@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from dataclasses import asdict, dataclass
 from datetime import datetime
 
-from crawl_coindesk.ZenrowsUtil import ZenrowsUtil
+from utils.ZenrowsUtil import ZenrowsUtil
 
 
 @dataclass

@@ -1,7 +1,7 @@
 import asyncio
 import json
 
-from crawl_coindesk.crawl.CoinnessUseCase import CrawlCoinnessUseCase
+from crawl.executor.usecase.CoinnessUseCase import CrawlCoinnessUseCase
 
 async def main():
     crawler = CrawlCoinnessUseCase()

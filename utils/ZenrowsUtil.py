@@ -27,7 +27,7 @@ class ZenrowsUtil:
             # BeautifulSoup 객체 생성 및 반환
             print(html_content)
 
-            return BeautifulSoup(html_content, 'lxml')
+            return BeautifulSoup(html_content)
 
         except Exception as error:
             print(f"Failed to fetch page: {error}")
