@@ -24,9 +24,6 @@ class ZenrowsUtil:
             response = self.client.get(url, params=params)
             html_content = response.text
 
-            # BeautifulSoup 객체 생성 및 반환
-            print(html_content)
-
             return BeautifulSoup(html_content)
 
         except Exception as error:
