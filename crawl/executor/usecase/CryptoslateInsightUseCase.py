@@ -2,20 +2,9 @@ from bs4 import BeautifulSoup
 from dataclasses import asdict, dataclass
 from typing import List, Optional
 
+from crawl.core.domain.entity.CryptoSalte import InsightNewsItem, Category
 from utils.ZenrowsUtil import ZenrowsUtil
 
-@dataclass
-class Category:
-    name: str
-
-@dataclass
-class InsightNewsItem:
-    title: str
-    url: str
-    image_url: str
-    categories: List[Category]
-    published_time: str
-    data_source: Optional[str] = None  # For "Data via Farside Investors" cases
 
 class CryptoSlateInsightsUseCase:
     def __init__(self, util: ZenrowsUtil):

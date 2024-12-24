@@ -2,12 +2,9 @@ from typing import List, Dict, Any
 from bs4 import BeautifulSoup
 from dataclasses import dataclass, asdict
 
+from crawl.core.domain.entity.BitcoinNews import NewsContent
 from utils.ZenrowsUtil import ZenrowsUtil
 
-
-@dataclass
-class NewsContent:
-    content: str
 
 
 class BitcoinNewsUseCase:

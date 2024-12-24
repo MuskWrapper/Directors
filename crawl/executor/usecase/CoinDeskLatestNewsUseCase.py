@@ -4,18 +4,8 @@ from bs4 import BeautifulSoup
 from dataclasses import asdict, dataclass
 from datetime import datetime
 
+from crawl.core.domain.entity.Coindesk import LatestNewsItem
 from utils.ZenrowsUtil import ZenrowsUtil
-
-
-@dataclass
-class LatestNewsItem:
-    title: str
-    content: Optional[str]
-    url: str
-    category: str
-    published_time: str
-    image_url: Optional[str]
-
 
 class CoinDeskLatestNewsUseCase:
     def __init__(self, util: ZenrowsUtil):

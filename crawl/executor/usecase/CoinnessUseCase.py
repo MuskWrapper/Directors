@@ -4,20 +4,8 @@ from typing import List
 from dataclasses import dataclass, asdict
 import re
 
+from crawl.core.domain.entity.Coinness import NewsItem
 from utils.ZenrowsUtil import ZenrowsUtil
-
-
-@dataclass
-class NewsItem:
-    time: str
-    title: str
-    content: str
-    bull_count: int
-    bear_count: int
-    quote_count: int
-    coin_tags: List[str]
-    date: str
-    isHighlight: bool
 
 
 class CrawlCoinnessUseCase:
@@ -41,7 +29,8 @@ class CrawlCoinnessUseCase:
     @staticmethod
     def extract_date(soup: BeautifulSoup) -> str:
         """페이지에서 날짜 정보를 추출합니다."""
-        date_text = soup.select_one('#root > div > div.Wrap-sc-v065lx-0.hwmGSB > div > main > div.Wrap-sc-n14h4a-0.izBKQg > div > div.Wrap-sc-907me6-0.cjdwpI > div').text
+        date_text = soup.select_one(
+            '#root > div > div.Wrap-sc-v065lx-0.hwmGSB > div > main > div.Wrap-sc-n14h4a-0.izBKQg > div > div.Wrap-sc-907me6-0.cjdwpI > div').text
         match = re.search(r'(\d{4})년\s*(\d{1,2})월\s*(\d{1,2})일', date_text)
 
         if match:

@@ -2,18 +2,8 @@ from bs4 import BeautifulSoup
 from dataclasses import asdict, dataclass
 from typing import List, Optional
 
+from crawl.core.domain.entity.CryptoNews import CryptoNewsItem
 from utils.ZenrowsUtil import ZenrowsUtil
-
-@dataclass
-class CryptoNewsItem:
-    title: str
-    url: str
-    category: Optional[str]
-    description: str
-    published_time: str
-    author: Optional[str]
-    image_url: Optional[str]
-    is_featured: bool  # True for main news, False for mini news
 
 class CryptoNewsUseCase:
     def __init__(self, util: ZenrowsUtil):

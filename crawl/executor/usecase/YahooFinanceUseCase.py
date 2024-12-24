@@ -3,12 +3,8 @@ from typing import Dict, Any, List
 
 from bs4 import BeautifulSoup
 
+from crawl.core.domain.entity.YahooFinance import NewsContent
 from utils.ZenrowsUtil import ZenrowsUtil
-
-
-@dataclass
-class NewsContent:
-    content: str
 
 
 class YahooFinanceUseCase:

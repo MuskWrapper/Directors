@@ -2,18 +2,9 @@ from bs4 import BeautifulSoup
 from dataclasses import asdict, dataclass
 from typing import List, Optional
 
+from crawl.core.domain.entity.CryptoSalte import TopNewsItem
 from utils.ZenrowsUtil import ZenrowsUtil
 
-
-@dataclass
-class TopNewsItem:
-    title: str
-    url: str
-    image_url: str
-    category: str
-    author: str
-    published_time: str
-    type: Optional[str] = None
 
 class CryptoSlateUseCase:
     def __init__(self, util: ZenrowsUtil):

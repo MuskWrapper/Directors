@@ -3,12 +3,8 @@ from typing import List, Dict, Any
 
 from bs4 import BeautifulSoup
 
+from crawl.core.domain.entity.Cointelegraph import NewsContent
 from utils.ZenrowsUtil import ZenrowsUtil
-
-
-@dataclass
-class NewsContent:
-    content: str
 
 
 class CointelegraphUseCase:

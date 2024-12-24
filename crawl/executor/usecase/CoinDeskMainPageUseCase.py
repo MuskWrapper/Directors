@@ -3,33 +3,8 @@ from typing import Optional, List
 from dataclasses import dataclass, asdict
 from datetime import datetime
 
+from crawl.core.domain.entity.Coindesk import NewsStory, MostReadStory, Author
 from utils.ZenrowsUtil import ZenrowsUtil
-
-
-@dataclass
-class NewsStory:
-    title: str
-    content: Optional[str]
-    url: str
-    published_time: str
-    category: Optional[str]
-    image_url: Optional[str]
-    is_sponsored: bool
-
-@dataclass
-class Author:
-    name: str
-    url: str
-
-@dataclass
-class MostReadStory:
-    rank: int
-    title: str
-    url: str
-    content: Optional[str]
-    authors: List[Author]
-    published_time: str
-    image_url: Optional[str]
 
 class CoinDeskMainPageUseCase:
     def __init__(self, util: ZenrowsUtil):
